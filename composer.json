@@ -1,0 +1,22 @@
+{
+    "name": "awstudio/google-photos-api",
+    "description": "Google Photos API using Picasa endpoints. Let You get Albums, Pictures and Videos of Users with the acces token",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Albert Montolio Romo",
+            "email": "albert@montol.io"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": "^6.0",
+        "php": ">=5.5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "GooglePhotosApi": ""
+        }
+    },
+}
