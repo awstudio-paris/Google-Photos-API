@@ -38,7 +38,7 @@ class GooglePhotosClient
 
     /**
      * PicasaClient constructor.
- * @param $settings array of settings for more info see setSettings
+    * @param $settings array of settings for more info see setSettings
      * @see GooglePhotosClient::setSettings()
      */
     public function __construct($settings = null)
@@ -157,13 +157,13 @@ class GooglePhotosClient
      */
     private function addPagination($query)
     {
-        if (isset($this->settings['start_index']))
+        if (isset($this->settings['start-index']))
         {
-            $query['start_index'] = $this->settings['start_index'];
+            $query['start-index'] = $this->settings['start-index'];
         }
-        if (isset($this->settings['max_results']))
+        if (isset($this->settings['max-results']))
         {
-            $query['max_results'] = $this->settings['max_results'];
+            $query['max-results'] = $this->settings['max-results'];
         }
 
         return $query;
@@ -203,8 +203,8 @@ class GooglePhotosClient
      *   'thumb_size'       => int : 200
      *   'crop_mode'        => string (h, w, s) : 's'
      *   'should_crop'      => bool : false
-     *   'max_results'      => int : null
-     *   'start_index'      => int : null
+     *   'max-results'      => int : null
+     *   'start-index'      => int : null
      *   'ignored_albums'   => array : [] //albums that wants to be ignore, by title or ID
      *
      * @see https://developers.google.com/picasa-web/docs/2.0/reference
