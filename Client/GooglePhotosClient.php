@@ -136,7 +136,7 @@ class GooglePhotosClient
         $xmlResult = $this->decodeXml($response->getBody());
         $albumTitle = (string)$xmlResult->title[0];
         foreach ($xmlResult->entry as $entry) {
-            if (AbstractMedia::isVideo($entry)) {
+            if (AbstractMedia::isVideo($entry) && $this->settings['ignore_videos'] === false) {
                 $images[] = Video::makeFromXml($entry, $this->settings);
             } else {
                 $images[] = Photo::makeFromXml($entry, $this->settings);
@@ -206,6 +206,7 @@ class GooglePhotosClient
      *   'max-results'      => int : null
      *   'start-index'      => int : null
      *   'ignored_albums'   => array : [] //albums that wants to be ignore, by title or ID
+     *   'ignore_videos'    => bool : true //set it to false if you want to get teh videos from the API
      *
      * @see https://developers.google.com/picasa-web/docs/2.0/reference
      */
@@ -227,11 +228,12 @@ class GooglePhotosClient
         }
         return [
             'visibility' => 'all',
-            'should_crop' => 'false',
+            'should_crop' => false,
             'thumb_size' => 200,
             'crop_mode' => 's',
             'ignored_albums' => [],
             'kind' => 'album',
+            'ignore_videos' => true
         ];
     }
 
@@ -251,3 +253,4 @@ class GooglePhotosClient
         $this->googleAccessToken = $googleAccessToken;
     }
 }
+
