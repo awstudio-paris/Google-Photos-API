@@ -1,5 +1,5 @@
 # Google-Photos-API
-Inspired by [oc-GooglePhotos-plugin](https://github.com/inetis-ch/oc-GooglePhotos-plugin)
+Inspired by [oc-GooglePhotos-plugin](https://github.com/inetis-ch/oc-GooglePhotos-plugin) and
 developed by [AWStudio](http://www.awstudio.es)
 
 ## Description
