@@ -244,7 +244,7 @@ class Video extends AbstractMedia
     /**
      * @return array
      */
-    public function getStreams(): array
+    public function getStreams()
     {
         return $this->streams;
     }
@@ -252,7 +252,7 @@ class Video extends AbstractMedia
     /**
      * @param array $streams
      */
-    public function setStreams(array $streams)
+    public function setStreams($streams)
     {
         $this->streams = $streams;
     }

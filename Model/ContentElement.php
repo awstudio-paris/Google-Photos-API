@@ -84,7 +84,7 @@ class ContentElement extends AbstractMedia
     /**
      * @return string
      */
-    public function getUrl(): string
+    public function getUrl()
     {
         return $this->url;
     }
@@ -92,7 +92,7 @@ class ContentElement extends AbstractMedia
     /**
      * @param string $url
      */
-    public function setUrl(string $url)
+    public function setUrl($url)
     {
         $this->url = $url;
     }
@@ -100,7 +100,7 @@ class ContentElement extends AbstractMedia
     /**
      * @return int
      */
-    public function getHeight(): int
+    public function getHeight()
     {
         return $this->height;
     }
@@ -108,7 +108,7 @@ class ContentElement extends AbstractMedia
     /**
      * @param int $height
      */
-    public function setHeight(int $height)
+    public function setHeight( $height)
     {
         $this->height = $height;
     }
@@ -116,7 +116,7 @@ class ContentElement extends AbstractMedia
     /**
      * @return int
      */
-    public function getWidth(): int
+    public function getWidth()
     {
         return $this->width;
     }
@@ -124,7 +124,7 @@ class ContentElement extends AbstractMedia
     /**
      * @param int $width
      */
-    public function setWidth(int $width)
+    public function setWidth($width)
     {
         $this->width = $width;
     }
