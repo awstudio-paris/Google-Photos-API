@@ -1,6 +1,6 @@
 # Google-Photos-API
-Fork from [oc-GooglePhotos-plugin](https://github.com/inetis-ch/oc-GooglePhotos-plugin)
-developed by [AWStudio](www.awstudio.es)
+Inspired by [oc-GooglePhotos-plugin](https://github.com/inetis-ch/oc-GooglePhotos-plugin)
+developed by [AWStudio](http://www.awstudio.es)
 
 ## Description
 This library provides an interface to access to google photos using [Picasa API](https://developers.google.com/gdata/docs/2.0/reference). The Picasa API is deprecated, you should only use this client if you want to get Album information, if you don't care about it, you should use the Google Drive API to get the photos.
