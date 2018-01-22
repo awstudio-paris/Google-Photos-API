@@ -57,3 +57,4 @@ For more info check [Picasa API](https://developers.google.com/gdata/docs/2.0/re
 
 ## <a name="access_token"></a> Google Access Token
 We don't provide a way to get the Google Access Token. Please check the [official documentation](https://support.google.com/googleapi/answer/6158857) for that or use a third party library that provides OAuth2 authentification. Right now we use [HWIOAuthBundle](https://github.com/hwi/HWIOAuthBundle) for our Symfony projects.
+The scope of the OAuth that you need to set for this client is `https://picasaweb.google.com/data/`
