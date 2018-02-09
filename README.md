@@ -51,6 +51,7 @@ You can adjust some settings of the client either using the constructor or with 
 | start-index    | int                                           | null    | Combine with max-result to apply pagination     |
 | ignored_albums | array                                         | []      | albums that want to be ignored, by title or ID  |
 | ignore_videos  | bool                                          | true    | Set to false to get the videos on the response. |
+| ignore_image_types  | array                                          | []    | Set the images types that want to be ignored f.i : \['image/gif', 'image/jpg'\] |
 
 For more info check [Picasa API](https://developers.google.com/gdata/docs/2.0/reference)
 

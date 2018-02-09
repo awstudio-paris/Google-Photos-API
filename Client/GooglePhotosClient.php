@@ -38,7 +38,7 @@ class GooglePhotosClient
 
     /**
      * PicasaClient constructor.
-    * @param $settings array of settings for more info see setSettings
+     * @param $settings array of settings for more info see setSettings
      * @see GooglePhotosClient::setSettings()
      */
     public function __construct($settings = null)
@@ -138,12 +138,21 @@ class GooglePhotosClient
         foreach ($xmlResult->entry as $entry) {
             if (AbstractMedia::isVideo($entry) && $this->settings['ignore_videos'] === false) {
                 $images[] = Video::makeFromXml($entry, $this->settings);
-            } else {
+            } elseif(!$this->isIgnoredPhoto($entry)){
                 $images[] = Photo::makeFromXml($entry, $this->settings);
             }
         }
 
         return $images;
+    }
+
+    private function isIgnoredPhoto(SimpleXMLElement $xmlElement){
+        if(isset($xmlElement->content->attributes()["type"]) &&
+            in_array($xmlElement->content->attributes()["type"], $this->settings['ignore_image_types'])
+        ){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -207,6 +216,7 @@ class GooglePhotosClient
      *   'start-index'      => int : null
      *   'ignored_albums'   => array : [] //albums that wants to be ignore, by title or ID
      *   'ignore_videos'    => bool : true //set it to false if you want to get teh videos from the API
+     *   'ignore_image_types' => array : [] //add the image types wanted to be ignored f.i image/gif
      *
      * @see https://developers.google.com/picasa-web/docs/2.0/reference
      */
@@ -233,7 +243,8 @@ class GooglePhotosClient
             'crop_mode' => 's',
             'ignored_albums' => [],
             'kind' => 'album',
-            'ignore_videos' => true
+            'ignore_videos' => true,
+            'ignore_image_types' => []
         ];
     }
 
@@ -248,7 +259,7 @@ class GooglePhotosClient
     /**
      * @param string $googleAccessToken
      */
-    public function setGoogleAccessToken(string $googleAccessToken)
+    public function setGoogleAccessToken($googleAccessToken)
     {
         $this->googleAccessToken = $googleAccessToken;
     }
