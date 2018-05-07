@@ -25,7 +25,7 @@ class Album extends AbstractMedia
 	protected $thumbUrl;
 
     /**
-     * @var int
+     * @var string
      */
 	protected $albumId;
 
@@ -61,7 +61,7 @@ class Album extends AbstractMedia
         $album->setUpdatedDate(new \DateTime((string)$entry->updated));
 		$album->setPhotoUrl((string) $photoAttr['url']);
 		$album->setThumbUrl((string) $thumbnailAttr['url']);
-		$album->setAlbumId((int) $albumElement->id);
+		$album->setAlbumId((string) $albumElement->id);
 		$album->setAlbumNumPhotos((int) $albumElement->numphotos);
 
 
@@ -140,7 +140,7 @@ class Album extends AbstractMedia
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getAlbumId()
     {
@@ -148,7 +148,7 @@ class Album extends AbstractMedia
     }
 
     /**
-     * @param int $albumId
+     * @param string $albumId
      */
     public function setAlbumId($albumId)
     {
