@@ -62,6 +62,7 @@ class GooglePhotosClient
             'kind' => $this->settings['kind'],
             'thumbsize' => $this->settings['thumb_size'],
             'access' => $this->settings['visibility'],
+            'deprecation-extension' => 'true'
         ];
 
         $query = $this->addPagination($query);
@@ -111,7 +112,8 @@ class GooglePhotosClient
         $query = [
             'thumbsize' => $this->settings['thumb_size'],
             'access' => $this->settings['visibility'],
-            'imgmax' => 'd' // Retrieve original image (full size)
+            'imgmax' => 'd', // Retrieve original image (full size)
+            'deprecation-extension' => 'true'
         ];
         $query = $this->addPagination($query);
 
@@ -264,4 +266,5 @@ class GooglePhotosClient
         $this->googleAccessToken = $googleAccessToken;
     }
 }
+
 
