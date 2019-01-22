@@ -56,12 +56,13 @@ class GooglePhotosClient
      */
     public function getAlbumsList()
     {
-        $url = "https://picasaweb.google.com/data/feed/api/user/default?deprecation-extension=true";
+        $url = "https://picasaweb.google.com/data/feed/api/user/default";
 
         $query = [
             'kind' => $this->settings['kind'],
             'thumbsize' => $this->settings['thumb_size'],
             'access' => $this->settings['visibility'],
+            'deprecation-extension' => 'true'
         ];
 
         $query = $this->addPagination($query);
@@ -106,12 +107,13 @@ class GooglePhotosClient
      */
     public function getAlbumImages($albumId, &$albumTitle = "")
     {
-        $url = "https://picasaweb.google.com/data/feed/api/user/default/albumid/" . $albumId ."?deprecation-extension=true";
+        $url = "https://picasaweb.google.com/data/feed/api/user/default/albumid/" . $albumId;
 
         $query = [
             'thumbsize' => $this->settings['thumb_size'],
             'access' => $this->settings['visibility'],
-            'imgmax' => 'd' // Retrieve original image (full size)
+            'imgmax' => 'd', // Retrieve original image (full size)
+            'deprecation-extension' => 'true'
         ];
         $query = $this->addPagination($query);
 
@@ -264,4 +266,3 @@ class GooglePhotosClient
         $this->googleAccessToken = $googleAccessToken;
     }
 }
-
