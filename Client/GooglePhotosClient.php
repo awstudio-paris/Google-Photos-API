@@ -56,7 +56,7 @@ class GooglePhotosClient
      */
     public function getAlbumsList()
     {
-        $url = "https://picasaweb.google.com/data/feed/api/user/default";
+        $url = "https://picasaweb.google.com/data/feed/api/user/default?deprecation-extension=true";
 
         $query = [
             'kind' => $this->settings['kind'],
@@ -106,7 +106,7 @@ class GooglePhotosClient
      */
     public function getAlbumImages($albumId, &$albumTitle = "")
     {
-        $url = "https://picasaweb.google.com/data/feed/api/user/default/albumid/" . $albumId;
+        $url = "https://picasaweb.google.com/data/feed/api/user/default/albumid/" . $albumId ."?deprecation-extension=true";
 
         $query = [
             'thumbsize' => $this->settings['thumb_size'],
